@@ -1,0 +1,30 @@
+By dominant culture:
+Goblin
+Construct
+Lizardfolk
+Tabaxi
+Yuan-Ti
+Undead
+Genasi
+
+By society:
+Cultist
+Cult of Rakdos
+
+By ecology:
+Underdark
+Sea
+Forest
+Mountain
+Plains
+Tropical
+Domestic
+Arctic
+Volcano
+
+By place:
+Waterdeep
+Thieves' Guild
+Strahd
+Bryn Shander
+Phandalin
