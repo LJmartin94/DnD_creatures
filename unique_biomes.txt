@@ -7,13 +7,19 @@ Yuan-Ti
 Undead
 Genasi
 Kenku
+Grung
+Kobold
+Dragonborn
+Shifter
 
 By society:
 Cultist
 Cult of Rakdos
+Wanderer
 
 By ecology:
 Underdark
+Underground
 Abyss
 Sea
 Forest
@@ -27,6 +33,8 @@ Desert
 Swamp
 Urban
 Hill
+Coast
+Jungle
 
 By place:
 Waterdeep

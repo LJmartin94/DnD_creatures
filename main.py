@@ -58,7 +58,7 @@ def fetch_monsters():
             if len(monster_name) == 2:
                 monster_type = monster_name[1].split("</h2><h2 class=\"list-menu-item-label\">")
                 challenge_rating = monster_type[1].split("</h2>")
-                google = "https://www.google.com/search?q=5e+dnd+beyond"
+                google = "https://www.google.com/search?q=dnd+beyond+5e"
                 for word in monster_name[0].split(): google += ("+" + str(word))
                 cr_num = interpret_cr(challenge_rating[0])
                 biome = find_biome_for_monster(monster_name[0], biome_kvp)
@@ -137,7 +137,7 @@ def main():
 
     # OPTIONAL FILTERS:======================================================================
     # only include the following
-    monsters = prefilter_monsters_incl(monsters, info.biome, "")
+    monsters = prefilter_monsters_incl(monsters, info.biome, "NaN")
 
     # add the following
     monsters += prefilter_monsters_incl(monsters, info.type, "something overly specific to exclude")
@@ -175,7 +175,7 @@ def main():
     # =======================================================================================
 
     # OUTPUT FILTERS:========================================================================
-    all_monsters = 0
+    all_monsters = 1
     random_monsters = 1
 
     # print all monsters
