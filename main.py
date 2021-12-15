@@ -1,6 +1,7 @@
 from enum import IntEnum
 import random
 
+
 class info(IntEnum):
     name = 0
     type = 1
@@ -8,6 +9,7 @@ class info(IntEnum):
     stat_url = 3
     goog_url = 4
     cr_num = 5
+    biome = 6
 
 
 def interpret_cr(cr_str):
@@ -22,7 +24,24 @@ def interpret_cr(cr_str):
     return cr
 
 
+def fetch_biomes():
+    biome_file = open("biomes.txt")
+    biome_kvp = []
+    for line in biome_file:
+        biome_kvp.append(line.split(" = "))
+    return biome_kvp
+
+
+def find_biome_for_monster(name, kvp):
+    biome = "NaN"
+    for key in kvp:
+        if key[0] == name:
+            biome = key[1]
+    return biome
+
+
 def fetch_monsters():
+    biome_kvp = fetch_biomes()
     file = open("output.txt")
 
     monster_designator = "<h1 class=\"list-menu-item-heading\">"
@@ -39,10 +58,11 @@ def fetch_monsters():
             if len(monster_name) == 2:
                 monster_type = monster_name[1].split("</h2><h2 class=\"list-menu-item-label\">")
                 challenge_rating = monster_type[1].split("</h2>")
-                cr_num = interpret_cr(challenge_rating[0])
-                google = "https://www.google.com/search?q=dnd+5e"
+                google = "https://www.google.com/search?q=5e+dnd+beyond"
                 for word in monster_name[0].split(): google += ("+" + str(word))
-                monster_info = (monster_name[0], monster_type[0], challenge_rating[0], ref, google, cr_num)
+                cr_num = interpret_cr(challenge_rating[0])
+                biome = find_biome_for_monster(monster_name[0], biome_kvp)
+                monster_info = (monster_name[0], monster_type[0], challenge_rating[0], ref, google, cr_num, biome)
                 monsters.append(monster_info)
                 ref = challenge_rating[1].split("href=\"")[1].split("\" class=\"menu")[0]
                 ref = "https://www.dndwiki.io" + ref
@@ -98,12 +118,14 @@ def cr_filter_range(monsters, lower, upper):
 
 def print_all_monsters(monsters):
     for monster in monsters:
-        print(monster)
+        for attribute in monster:
+            print(attribute)
+        print()
     return 0
 
 
 def print_random_monster(monsters):
-    i = random.randint(0, len(monsters))
+    i = random.randint(0, len(monsters) - 1)
     for attribute in monsters[i]:
         print(attribute)
     return 0
@@ -115,7 +137,7 @@ def main():
 
     # OPTIONAL FILTERS:======================================================================
     # only include the following
-    monsters = prefilter_monsters_incl(monsters, info.type, "")
+    monsters = prefilter_monsters_incl(monsters, info.biome, "")
 
     # add the following
     monsters += prefilter_monsters_incl(monsters, info.type, "something overly specific to exclude")
@@ -130,8 +152,8 @@ def main():
     range_m = 1
 
     cr_filter = 1.0
-    range_upper = 1
-    range_lower = -1
+    range_upper = 0.25
+    range_lower = 0
     # show monsters of CR or lower:
     if lower == 1:
         monsters = cr_filter_below(monsters, cr_filter)
@@ -163,6 +185,7 @@ def main():
     if random_monsters == 1:
         print_random_monster(monsters)
     # =======================================================================================
+    fetch_biomes()
     return 0
 
 

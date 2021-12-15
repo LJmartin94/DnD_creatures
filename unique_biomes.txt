@@ -6,6 +6,7 @@ Tabaxi
 Yuan-Ti
 Undead
 Genasi
+Kenku
 
 By society:
 Cultist
@@ -13,6 +14,7 @@ Cult of Rakdos
 
 By ecology:
 Underdark
+Abyss
 Sea
 Forest
 Mountain
@@ -21,6 +23,10 @@ Tropical
 Domestic
 Arctic
 Volcano
+Desert
+Swamp
+Urban
+Hill
 
 By place:
 Waterdeep
