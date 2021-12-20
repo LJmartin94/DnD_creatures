@@ -11,11 +11,14 @@ Grung
 Kobold
 Dragonborn
 Shifter
+Aarakocra
+Human
 
 By society:
 Cultist
 Cult of Rakdos
 Wanderer
+Mages
 
 By ecology:
 Underdark
