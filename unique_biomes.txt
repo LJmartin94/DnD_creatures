@@ -23,6 +23,7 @@ Underground
 Abyss
 Sea
 Forest
+Fey
 Mountain
 Plains
 Tropical
@@ -42,3 +43,4 @@ Thieves' Guild
 Strahd
 Bryn Shander
 Phandalin
+Sunless Citadel

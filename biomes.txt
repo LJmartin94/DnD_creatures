@@ -51,3 +51,5 @@ Kobold Underling = Kobold
 Kobold = Kobold
 Mongrelfolk = Underground, Urban
 Swarm of Rats = Swamp, Urban
+Erky Timbers = Sunless Citadel
+Giant Owl = Arctic, Forest, Hill, Fey
